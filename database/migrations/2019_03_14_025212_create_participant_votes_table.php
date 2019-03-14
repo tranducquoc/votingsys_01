@@ -14,10 +14,15 @@ class CreateParticipantVotesTable extends Migration
     public function up()
     {
         Schema::create('participant_votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('participant_id')->index();
-            $table->integer('option_id')->index();
+            $table->bigIncrements('id');
             $table->timestamps();
+        });
+
+        Schema::table('participant_votes', function (Blueprint $table) {
+            $table->unsignedBigInteger('participant_id');
+            $table->unsignedBigInteger('option_id');
+            $table->foreign('participant_id')->references('id')->on('participants');
+            $table->foreign('option_id')->references('id')->on('options');
         });
     }
 

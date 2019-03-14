@@ -14,11 +14,16 @@ class CreateLinksTable extends Migration
     public function up()
     {
         Schema::create('links', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('poll_id')->index();
+            $table->bigIncrements('id');
             $table->string('token')->unique();
             $table->boolean('link_admin')->default(false);
             $table->timestamps();
+        });
+
+        Schema::table('links', function (Blueprint $table) {
+            $table->unsignedBigInteger('poll_id');
+
+            $table->foreign('poll_id')->references('id')->on('polls');
         });
     }
 

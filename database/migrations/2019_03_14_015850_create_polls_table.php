@@ -14,8 +14,7 @@ class CreatePollsTable extends Migration
     public function up()
     {
         Schema::create('polls', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->index();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email');
             $table->string('title');
@@ -25,6 +24,12 @@ class CreatePollsTable extends Migration
             $table->boolean('multiple')->default(false);
             $table->string('date_close')->nullable();
             $table->timestamps();
+        });
+
+       Schema::table('polls', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
