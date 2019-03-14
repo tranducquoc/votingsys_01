@@ -14,12 +14,17 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('poll_id')->index();
+            $table->bigIncrements('id');
             $table->tinyInteger('type')->default(0);
             $table->string('value')->nullable();
             $table->timestamps();
         });
+
+       Schema::table('settings', function (Blueprint $table) {
+            $table->unsignedBigInteger('poll_id');
+
+            $table->foreign('poll_id')->references('id')->on('polls');
+        }); 
     }
 
     /**

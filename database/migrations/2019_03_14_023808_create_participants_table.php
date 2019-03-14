@@ -14,12 +14,17 @@ class CreateParticipantsTable extends Migration
     public function up()
     {
         Schema::create('participants', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->index()->nullable();
+            $table->bigIncrements('id');
             $table->string('ip_address')->nullable();
             $table->string('name')->nullable();
             $table->string('email');
             $table->timestamps();
+        });
+
+        Schema::table('participants', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
