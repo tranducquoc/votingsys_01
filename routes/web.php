@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+Route::namespace('Admin')->group(function(){
+    Route::resource('admin', 'HomeController');
+});
