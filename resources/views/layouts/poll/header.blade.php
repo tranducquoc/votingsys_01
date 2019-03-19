@@ -46,9 +46,10 @@
         <div class="container">
             <div class="row fullscreen d-flex justify-content-center align-items-center">
                 <div class="banner-content col-lg-10 col-md-12 justify-content-center">
-                    <h1>
+                    <h1 class="poll-banner">
                         Sun Asterisk Polls
                     </h1>
+                    <a href="#form" class="primary-btn squire text-uppercase mt-10">Get Stated</a>
                 </div>
             </div>
         </div>

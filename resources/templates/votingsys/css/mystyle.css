@@ -531,6 +531,23 @@
    top: 0;
    font-size: 15px;
 }
+
 .link-edit2 {
-   position: relative;
+  position: relative;
+}
+
+.justify-content-center {
+  margin-bottom: 0;
+}
+
+.text-center2 {
+  min-height: 40em !important;
+}
+
+.owl-stage {
+  margin-left: 10em;
+}
+
+.item2 img{
+  margin-left: 5em !important;
 }
