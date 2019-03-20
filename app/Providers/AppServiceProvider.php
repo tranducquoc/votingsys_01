@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Link\LinkRepository;
+use App\Repositories\Link\LinkRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        App::bind(LinkRepositoryInterface::class, LinkRepository::class);
     }
 
     /**
