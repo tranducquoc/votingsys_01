@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Poll;
 
-class HomeController extends Controller
+class PollController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
     }
 
     /**
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return view('admin.table');
+        return view('home');
     }
 
     /**
@@ -35,7 +35,17 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $input = $request->only('name', 'email', 'title', 'multiple', 'description', 'date_close', 'location');
+            $input['user_id'] = 1; //thay the khi lam chuc nang login
+            Poll::create($input);
+        } catch (Exception $e) {
+            return response()
+                ->json(['message' => 'Failed: Add failed']);
+        }
+        
+        return response()
+            ->json(['message' => 'Success: Add successfully']);
     }
 
     /**
@@ -46,6 +56,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -56,6 +67,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
@@ -67,6 +79,7 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
     }
 
     /**
@@ -77,5 +90,6 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }
