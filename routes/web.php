@@ -21,3 +21,7 @@ Route::resource('poll', 'PollController');
 
 Route::view('/{any}', 'home')
     ->where('any', '.*');
+
+Route::namespace('User')->group(function(){
+    Route::resource('vote', 'VoteController');
+});
