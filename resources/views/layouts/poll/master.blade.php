@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="/templates/votingsys/img/title.png">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="colorlib">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -31,6 +32,12 @@
     {{ Html::script(asset('/templates/votingsys/js/tagify.js')) }}
     {{ Html::style(asset('/templates/votingsys/css/bootstrap-toggle.min.css')) }}
     {{ Html::script(asset('/templates/votingsys/js/bootstrap-toggle.min.js')) }}
+    <script type="text/javascript">
+        window.Laravel = {!! json_encode([
+            'baseUrl' => url('/'),
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 <body>
     @include('layouts.poll.header')
@@ -47,4 +54,7 @@
     {{ Html::script(asset('/templates/votingsys/js/scrollpage.js')) }}
     {{ Html::style(asset('/templates/votingsys/css/prism.min.css')) }}
     {{ Html::script(asset('/templates/votingsys/js/prism.min.js')) }}
+    <script src="{{asset('/templates/votingsys/js/myScript.js')}}" ></script>
+    <script src="{{asset('/templates/votingsys/js/taginput.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </html>
