@@ -12,7 +12,6 @@ use App\Models\SocialAccount;
 use App\Models\Activity;
 use App\Models\ParticipantVote;
 
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -23,14 +22,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
+        'name',
+        'email',
         'password',
         'gender',
         'avatar',
         'role',
         'token_verfication',
-        'is_active'
+        'is_active',
     ];
 
     /**
@@ -39,7 +38,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 

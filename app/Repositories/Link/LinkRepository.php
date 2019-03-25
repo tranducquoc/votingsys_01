@@ -1,9 +1,9 @@
 <?php
 namespace App\Repositories\Link;
+
 use App\Repositories\BaseRepository;
 use App\Repositories\BaseInterface;
 use App\Models\Link;
-
 
 class LinkRepository extends BaseRepository implements LinkRepositoryInterface
 {

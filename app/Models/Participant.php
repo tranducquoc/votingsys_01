@@ -24,5 +24,4 @@ class Participant extends Model
     {
         return $this->hasMany(ParticipantVote::class);
     }
-
 }
