@@ -38,13 +38,14 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    {{ Html::style(asset('/templates/votingsys/css/tab-voting.css')) }}
 </head>
 <body>
     @include('layouts.poll.header')
         @yield('content')
     @include('layouts.poll.footer')
 </body>
-    {{ Html::script(asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyDVq1eRO3SMYnmnXu213mAa9hTj_B7EMcI&libraries=places&callback=initAutocomplete')) }}
+    {{ Html::script(asset('https://maps.googleapis.com/maps/api/js?key=YOUR-KEY&libraries=places&callback=initAutocomplete')) }}
     {{ Html::script(asset('/templates/votingsys/js/superfish.min.js')) }}
     {{ Html::script(asset('/templates/votingsys/js/jquery.magnific-popup.min.js')) }}
     {{ Html::script(asset('/templates/votingsys/js/jquery-ui.js')) }}
