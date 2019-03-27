@@ -16,12 +16,13 @@ build:
       - composer install
       - framgia-ci test-connect mysql_test 3306 60
       - php artisan migrate --database=mysql_test
+      - framgia-ci run --logs
 test:
   eslint:
-    ignore: true
+    ignore: false
     command: eslint --format=checkstyle
       --output-file=.framgia-ci-reports/eslint.xml
-      resources/assets/js/ --ext .js
+      resources/js/ --ext .js
   phpcpd:
     ignore: true
     command: phpcpd --log-pmd=.framgia-ci-reports/phpcpd.xml app
