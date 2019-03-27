@@ -17,16 +17,16 @@ class LinkRepository extends BaseRepository implements LinkRepositoryInterface
 
     public function createLinkUser()
     {
-        $strUser = md5(time().'user');
-        $tokenUser = substr($strUser, 0, 16);
+        $strDefault = config('setting.str_default');
+        $tokenUser = substr(str_shuffle($strDefault), 0, 16);
 
         return $tokenUser;
     }
 
     public function createLinkAdmin()
     {
-        $strAdmin = md5(time().'admin');
-        $tokenAdmin = substr($strAdmin, 0, 16);
+        $strDefault = config('setting.str_default');
+        $tokenAdmin = substr(str_shuffle($strDefault), 0, 16);
 
         return $tokenAdmin;
     }
