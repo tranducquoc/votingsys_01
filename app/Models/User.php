@@ -150,7 +150,7 @@ class User extends Authenticatable
     public function haveWsmAction()
     {
         return $this->socialAccounts()->where('provider', SocialAccount::FRAMGIA_PROVIDER)->first()
-            && preg_match("/@framgia\.com$/", $this->email);
+            && (preg_match("/@framgia\.com$/", $this->email) || preg_match("/@sun-asterisk\.com$/", $this->email));
     }
 
     public function accountFramgia()
